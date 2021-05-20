@@ -25,6 +25,11 @@ from tkit_transformer_xl.autoregressivewrapper import AutoregressiveWrapper
 class Transformer_xl(pl.LightningModule):
     """
     自动xl实现,包含全部状态输出,并且计算loss
+    
+    >
+    >from tkit_transformer_xl import Transformer_xl
+    >model=Transformer_xl()
+    >
 
     """
     def __init__(self,lr=3e-4,dim=128,heads=8,seq_len=512,mem_write_iters = 2,
