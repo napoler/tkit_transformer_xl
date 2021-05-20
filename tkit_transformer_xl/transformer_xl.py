@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import torch
-from memory_transformer_xl import MemoryTransformerXL
+
+from tkit_memory_performer_xl import MemoryTransformerXL
 # from memory_transformer_xl.autoregressive_wrapper import AutoregressiveWrapper
 import torch
 from torch import nn
@@ -34,7 +35,7 @@ class Transformer_xl(pl.LightningModule):
     """
     def __init__(self,lr=3e-4,dim=128,heads=8,seq_len=512,mem_write_iters = 2,
                  max_batch_size=8,lmem_len = 256,mem_len = 256,memory_layers = [3,4,5],
-                 num_mem_kv = 128, depth = 5,T_max=500,attn_dropout=0.1, ff_glu = False, ff_dropout = 0.1, attn_layer_dropout = 0.1,num_tokens=8021,Autoregressive=False,**kwargs):
+                 num_mem_kv = 128, depth = 5,T_max=500,attn_dropout=0.1, ff_glu = False, ff_dropout = 0.1, attn_layer_dropout = 0.1,num_tokens=8021,memory_transformer_xl=False,Autoregressive=False,**kwargs):
         """
 
         """
@@ -46,7 +47,10 @@ class Transformer_xl(pl.LightningModule):
         #     self.tokenizer = BertTokenizer.from_pretrained("clue/roberta_chinese_clue_tiny")
         # else:
         #     self.tokenizer=tokenizer
-
+        
+        # 是否是引用原始的方案，默认使用perfprmer方案
+        if memory_transformer_xl==True:
+            from memory_transformer_xl import MemoryTransformerXL
         self.model = MemoryTransformerXL(
             num_tokens = self.hparams.num_tokens,
             dim = self.hparams.dim,

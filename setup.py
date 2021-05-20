@@ -29,8 +29,8 @@ def read_requirements(filename):
 long_description=read_file("README.md")
 setup(
     name='tkit_transformer_xl', #修改包名字-
-    version='0.0.0.5',
-    description='Terry toolkit tkitDemo',
+    version='0.0.0.6',
+    description='Terry toolkit tkit_transformer_xl',
     author='Terry Chan',
     author_email='napoler2008@gmail.com',
     url='https://github.com/napoler/tkit_transformer_xl',
@@ -40,8 +40,8 @@ setup(
     install_requires=[
         'pytorch-lightning>=1.2.10',
         'transformers>=4.0.0',
-        'memory-transformer-xl>=0.1.0'
-
+        'memory-transformer-xl>=0.1.0',
+        'tkit-memory-performer-xl>=0.0.1.0'
 
     ],
     packages=['tkit_transformer_xl'])
@@ -53,3 +53,31 @@ python3 setup.py sdist
 #python3 setup.py install
 python3 setup.py sdist upload
 """
+
+
+# 上传发布帮助
+
+# https://www.notion.so/terrychanorg/PyPi-pip-b371898f30ec4f268688edebab8d7ba1
+
+
+
+# ## 打包项目
+
+# ```
+# pip install wheel # 安装wheel模块
+
+# python setup.py sdist  # 源码包
+# python setup.py bdist_wheel --universal # 打包为无需build的wheel。其中--universal表示py2和py3通用的pure python模块。不满足通用或pure条件的模块不需加此参数
+# ```
+
+# ## 上传项目
+
+# 先在pypi注册一个账户：[https://pypi.org/account/register/](https://pypi.org/account/register/)
+
+# 然后安装上传所需模块：
+
+# `pip install twine`
+
+# 最后上传：
+
+# `twine upload dist/*`
