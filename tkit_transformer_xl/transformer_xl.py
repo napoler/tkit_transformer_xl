@@ -19,7 +19,7 @@ from torch.utils.data import random_split
 import pytorch_lightning as pl
 # from omegaconf import OmegaConf
 # import torch_optimizer as optim
-from tkit_transformer_xl import AutoregressiveWrapper
+from tkit_transformer_xl.autoregressivewrapper import AutoregressiveWrapper
 
 
 class Transformer_xl(pl.LightningModule):

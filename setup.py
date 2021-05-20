@@ -39,7 +39,8 @@ setup(
     long_description_content_type="text/markdown",
     install_requires=[
         'pytorch-lightning>=1.2.10',
-        'transformers>=4.0.0'
+        'transformers>=4.0.0',
+        'memory-transformer-xl>=0.1.0'
 
 
     ],
