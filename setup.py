@@ -29,7 +29,7 @@ def read_requirements(filename):
 long_description=read_file("README.md")
 setup(
     name='tkit_transformer_xl', #修改包名字-
-    version='0.0.0.6',
+    version='0.0.0.7',
     description='Terry toolkit tkit_transformer_xl',
     author='Terry Chan',
     author_email='napoler2008@gmail.com',
