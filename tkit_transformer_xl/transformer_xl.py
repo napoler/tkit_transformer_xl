@@ -2,7 +2,7 @@
 
 import torch
 
-from tkit_memory_performer_xl import MemoryTransformerXL
+
 # from memory_transformer_xl.autoregressive_wrapper import AutoregressiveWrapper
 import torch
 from torch import nn
@@ -51,6 +51,8 @@ class Transformer_xl(pl.LightningModule):
         # 是否是引用原始的方案，默认使用perfprmer方案
         if memory_transformer_xl==True:
             from memory_transformer_xl import MemoryTransformerXL
+        else:
+            from tkit_memory_performer_xl import MemoryTransformerXL
         self.model = MemoryTransformerXL(
             num_tokens = self.hparams.num_tokens,
             dim = self.hparams.dim,
